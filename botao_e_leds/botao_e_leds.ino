@@ -1,14 +1,11 @@
 // C++ code
-//
 int botao = 2;
 int led = 4;
-
 void setup()
 {
   pinMode(led,OUTPUT);
   pinMode(botao,INPUT);
 }
-
 void loop()
 {
   digitalRead(botao);//Ler o pino do botão
@@ -23,6 +20,4 @@ void loop()
   }else{ // Se a leitura do botão ele não estiver apertado não o forneça 5v.
   digitalWrite(led, LOW);
   }
- 
- 
 }
