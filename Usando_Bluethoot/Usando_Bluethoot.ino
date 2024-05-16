@@ -9,18 +9,18 @@ void setup() {
   Serial.begin(115200); // Inicia a comunicação serial com uma taxa de 115200 baud
   SerialBT.begin("ESP32_BT_Test"); // Inicia o Bluetooth com o nome "ESP32_BT_Test"
   Serial.println("Dispositivo visível"); // Imprime uma mensagem no monitor serial
-  pinMode(13, OUTPUT); // Configura o pino 13 como saída para o LED
+  pinMode(2, OUTPUT); // Configura o pino 2 como saída para o LED
 }
 
 void loop() {
   if (SerialBT.available()) {              // Verifica se há dados disponíveis para leitura via Bluetooth
     char command = SerialBT.read();             // Lê o comando recebido via Bluetooth
     if (command == '1') {                 // Se o comando recebido for '1'
-      digitalWrite(13, HIGH);               // Liga o LED conectado ao pino 13
+      digitalWrite(2, HIGH);               // Liga o LED conectado ao pino 2
       Serial.println("Comando recebido: 1");             // Exibe o comando recebido no monitor serial
       SerialBT.println("LED ligado");             // Envia uma mensagem de confirmação ao dispositivo Bluetooth
     } else if (command == '2') {                     // Se o comando recebido for '2'
-      digitalWrite(13, LOW);                     // Desliga o LED conectado ao pino 13
+      digitalWrite(2, LOW);                     // Desliga o LED conectado ao pino 2
       Serial.println("Comando recebido: 2");         // Exibe o comando recebido no monitor serial
       SerialBT.println("LED desligado");           // Envia uma mensagem de confirmação ao dispositivo Bluetooth
     }
